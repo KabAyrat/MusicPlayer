@@ -35,50 +35,99 @@
 body {
     transition: background-color 0.5s, color 0.5s;
 }
-
 .navbar {
     transition: background-color 0.5s, color 0.5s;
 }
-
-/* Light and dark theme styles */
+/* стили для различных тем */
 body.light-theme {
     background-color: #ffffff;
     color: #000000;
 }
-
 body.dark-theme {
     background-color: #000000;
     color: #ffffff;
 }
-
 body.light-theme .navbar {
-    background-color: #f8f9fa; /* Light background */
-    color: #000000; /* Dark text */
+    background-color: #f8f9fa; /* Светлая тема */
+    color: #000000; 
 }
-
 body.dark-theme .navbar {
-    background-color: #333333; /* Dark background */
-    color: #ffffff; /* Light text */
+    background-color: #333333; /* тёмная тема*/
+    color: #ffffff; 
 }
-
 body.light-theme .navbar .navbar-brand, 
 body.light-theme .navbar .nav-link {
-    color: #000000; /* Dark text */
+    color: #000000; 
 }
-
 body.dark-theme .navbar .navbar-brand, 
 body.dark-theme .navbar .nav-link {
-    color: #ffffff; /* Light text */
+    color: #ffffff; 
 }
-
-/* Custom switch styles for theme toggle */
+/* свитчи для смены темной темы */
 .custom-switch .custom-control-label::before {
     background-color: #f8f9fa;
     border-color: #6c757d;
     transition: background-color 0.5s, border-color 0.5s;
 }
-
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #343a40;
     border-color: #6c757d;
+}
+/* Стили для аудиодорожек */
+.audio-tracks {
+    margin-top: 20px;
+}
+
+.audio-track {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+.audio-track:hover {
+    background-color: #e9ecef;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+}
+
+.track-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.track-details {
+    flex-grow: 1;
+}
+
+.track-details h4 {
+    margin-bottom: 5px;
+}
+
+audio {
+    width: 100%;
+    outline: none;
+}
+
+body.dark-theme .audio-track {
+    background-color: #343a40;
+    border-color: #555;
+}
+
+body.dark-theme .audio-track:hover {
+    background-color: #495057;
+}
+
+body.dark-theme .track-details h4,
+body.dark-theme .track-details p {
+    color: #ffffff;
 }
