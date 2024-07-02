@@ -1,72 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar Menu</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      overflow-x: hidden;
-    }
-    #sidebar-wrapper {
-      min-height: 100vh;
-      width: 250px;
-      margin-left: -250px;
-      transition: margin 0.25s ease-out;
-    }
-    #sidebar-wrapper.active {
-      margin-left: 0;
-    }
-    #page-content-wrapper {
-      width: 100%;
-      transition: margin 0.25s ease-out;
-    }
-    #wrapper.toggled #sidebar-wrapper {
-      margin-left: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
-<body>
-  <div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Sidebar Menu</div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Главная страница</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="login.html" class="list-group-item list-group-item-action bg-light">Войти/зарегистрироваться</a>
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
+<body class="light-theme">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">MusicApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                    </div>
+                </li>
+            </ul>
+    </nav>
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-      </nav>
-      <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>This is a simple sidebar template with a toggle button.</p>
-      </div>
+    <!-- Side Navigation -->
+    <div id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Главная</a>
+        <a href="#">Профиль</a>
+        <a href="#">Плейлисты</a>
+        <a href="#">Авторизация</a>
     </div>
-    <!-- /#page-content-wrapper -->
-  </div>
-  <!-- /#wrapper -->
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Меню</span>
+        <div class="container">
+            <h1 class="mt-5">Добро пожаловать в MusicApp</h1>
+            <p>тут какой то текст</p>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 </html>

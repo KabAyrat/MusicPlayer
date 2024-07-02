@@ -1,0 +1,84 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+body {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.navbar {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Light and dark theme styles */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.light-theme .navbar {
+    background-color: #f8f9fa; /* Light background */
+    color: #000000; /* Dark text */
+}
+
+body.dark-theme .navbar {
+    background-color: #333333; /* Dark background */
+    color: #ffffff; /* Light text */
+}
+
+body.light-theme .navbar .navbar-brand, 
+body.light-theme .navbar .nav-link {
+    color: #000000; /* Dark text */
+}
+
+body.dark-theme .navbar .navbar-brand, 
+body.dark-theme .navbar .nav-link {
+    color: #ffffff; /* Light text */
+}
+
+/* Custom switch styles for theme toggle */
+.custom-switch .custom-control-label::before {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #343a40;
+    border-color: #6c757d;
+}
