@@ -43,14 +43,18 @@
                     <div class="track-info">
                         <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
                         <div class="track-details">
-                            <h4>Nothing else matters</h4>
+                            <h4>Nothing Else Matters</h4>
                             <p>Metallica</p>
-                            <audio controls>
-                                <source src="src/audios/Metallica_Nothing_Else_Matters.mp3" type="audio/mpeg">
-                            </audio>
+                            <div class="custom-audio-player">
+                                <audio id="audio1" src="src/audios/Metallica_Nothing_Else_Matters.mp3"></audio>
+                                <button class="play-pause-btn" onclick="togglePlayPause('audio1', this)"></button>
+                                <input type="range" class="seek-bar" value="0" onchange="seekAudio('audio1', this)">
+                                <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- другие треки сюда -->
             </div>
         </div>
     </div>
