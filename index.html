@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music App</title>
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body class="light-theme">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">MusicApp</a>
+        <a class="navbar-brand" href="index.html">MusicApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +23,7 @@
             </ul>
     </nav>
 
-    <!-- Side Navigation -->
+    <!-- навигационная панель -->
     <div id="sideNav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Главная</a>
@@ -35,21 +33,20 @@
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open Sidebar</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Меню</span>
         <div class="container mt-5">
-            <h1>Welcome to MusicApp</h1>
-            <p>Your one-stop destination for all your music needs.</p>
+            <h1>Добро пожаловать в MusicApp</h1>
+            <p>Все песни в одном месте!</p>
             <div class="audio-tracks">
-                <h2>Tracks</h2>
+                <h2>Треки</h2>
                 <div class="audio-track">
                     <div class="track-info">
-                        <img src="cover1.jpg" alt="Track 1 Cover" class="track-cover">
+                        <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
                         <div class="track-details">
-                            <h4>Track 1</h4>
-                            <p>Artist 1</p>
+                            <h4>Nothing else matters</h4>
+                            <p>Metallica</p>
                             <audio controls>
-                                <source src="track1.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
+                                <source src="src/audios/Metallica_Nothing_Else_Matters.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
@@ -57,10 +54,6 @@
             </div>
         </div>
     </div>
-
-        
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
