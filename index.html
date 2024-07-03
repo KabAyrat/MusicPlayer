@@ -39,22 +39,34 @@
             <p>Все песни в одном месте!</p>
             <div class="audio-tracks">
                 <h2>Треки</h2>
-                <div class="audio-track">
+                <div class="audio-track" onclick="openModal('src/audios/Metallica_Nothing_Else_Matters.mp3', 'src/photos/Metallica_Nothing_Else_Matters.jpeg', 'Nothing Else Matters', 'Metallica')">
                     <div class="track-info">
                         <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
                         <div class="track-details">
                             <h4>Nothing Else Matters</h4>
                             <p>Metallica</p>
-                            <div class="custom-audio-player">
-                                <audio id="audio1" src="src/audios/Metallica_Nothing_Else_Matters.mp3"></audio>
-                                <button class="play-pause-btn" onclick="togglePlayPause('audio1', this)"></button>
-                                <input type="range" class="seek-bar" value="0" onchange="seekAudio('audio1', this)">
-                                <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- другие треки сюда -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="trackModal" tabindex="-1" aria-labelledby="trackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trackModalLabel">Track Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Track Cover" id="modalTrackCover" class="img-fluid mb-3 rounded">
+                    <audio id="modalAudio" controls class="w-100"></audio>
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,4 @@
-// Open and close the side navigation
-function openNav() {
+function openNav() {  //    ОТКРЫТИЕ/ЗАКРЫТИЕ НАВИГАЦИОННОЙ ПАНЕЛИ
     document.getElementById("sideNav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 }
@@ -9,8 +8,7 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
-// Toggle between light and dark theme
-document.getElementById("themeSwitch").addEventListener("change", function() {
+document.getElementById("themeSwitch").addEventListener("change", function() {      //ПЕРЕКЛЮЧАТЕЛЬ МЕЖДУ ТЕМАМИ
     const body = document.body;
     if (this.checked) {
         body.classList.remove("light-theme");
@@ -20,63 +18,19 @@ document.getElementById("themeSwitch").addEventListener("change", function() {
         body.classList.add("light-theme");
     }
 });
-// Toggle play/pause for audio
-function togglePlayPause(audioId, button) {
-    const audio = document.getElementById(audioId);
-    if (audio.paused) {
-        audio.play();
-        button.textContent = 'Pause';
-    } else {
-        audio.pause();
-        button.textContent = 'Play';
-    }
-}
+function openModal(trackSrc, coverSrc, trackTitle, artist) { // ОТКРТЫИЕ МОДАЛЬНОГО ОКНА
+    const modal = $('#trackModal');
+    const audio = document.getElementById('modalAudio');
 
-function updateSeekBar(audioId, seekBar) {
-    const audio = document.getElementById(audioId);
-    seekBar.value = (audio.currentTime / audio.duration) * 100;
-}
+    audio.pause();
+    audio.currentTime = 0;
 
-function seekAudio(audioId, seekBar) {
-    const audio = document.getElementById(audioId);
-    const seekTo = (seekBar.value / 100) * audio.duration;
-    audio.currentTime = seekTo;
-}
+    $('#modalAudio').attr('src', trackSrc);
+    $('#modalTrackCover').attr('src', coverSrc);
+    $('#trackModalLabel').text(`${trackTitle} - ${artist}`);
 
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    seconds = Math.floor(seconds % 60);
-    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-}
+    const theme = document.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+    modal.find('.modal-content').attr('class', `modal-content ${theme}`);
 
-function updateTimeDisplay(audioId, currentTimeDisplay, totalTimeDisplay) {
-    const audio = document.getElementById(audioId);
-    currentTimeDisplay.textContent = formatTime(audio.currentTime);
-    totalTimeDisplay.textContent = formatTime(audio.duration);
-}
-
-function addAudioEventListeners(audioId, seekBar, currentTimeDisplay, totalTimeDisplay) {
-    const audio = document.getElementById(audioId);
-    audio.addEventListener('timeupdate', () => {
-        updateSeekBar(audioId, seekBar);
-        updateTimeDisplay(audioId, currentTimeDisplay, totalTimeDisplay);
-    });
-    audio.addEventListener('loadedmetadata', () => {
-        totalTimeDisplay.textContent = formatTime(audio.duration);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    addAudioEventListeners('audio1', document.querySelector('.seek-bar'), document.querySelector('.current-time'), document.querySelector('.total-time'));
-});
-// Toggle play/pause for audio
-function togglePlayPause(audioId, button) {
-    const audio = document.getElementById(audioId);
-    if (audio.paused) {
-        audio.play();
-        button.classList.add('playing');
-    } else {
-        audio.pause();
-        button.classList.remove('playing');
-    }
+    modal.modal('show');
 }

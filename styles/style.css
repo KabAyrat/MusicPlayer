@@ -1,3 +1,45 @@
+/* Основные стили */
+body {
+    transition: background-color 0.5s, color 0.5s;
+}
+.navbar {
+    transition: background-color 0.5s, color 0.5s;
+}
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+body.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+body.light-theme .navbar {
+    background-color: #f8f9fa; /* Светлая тема */
+    color: #000000; 
+}
+body.dark-theme .navbar {
+    background-color: #333333; /* Тёмная тема */
+    color: #ffffff; 
+}
+body.light-theme .navbar .navbar-brand, 
+body.light-theme .navbar .nav-link {
+    color: #000000; 
+}
+body.dark-theme .navbar .navbar-brand, 
+body.dark-theme .navbar .nav-link {
+    color: #ffffff; 
+}
+/* Стили для свитча */
+.custom-switch .custom-control-label::before {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+    transition: background-color 0.5s, border-color 0.5s;
+}
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #343a40;
+    border-color: #6c757d;
+}
+/* Стили навигационной панели */
 .sidenav {
     height: 100%;
     width: 0;
@@ -32,52 +74,10 @@
     transition: margin-left .5s;
     padding: 16px;
 }
-body {
-    transition: background-color 0.5s, color 0.5s;
-}
-.navbar {
-    transition: background-color 0.5s, color 0.5s;
-}
-/* стили для различных тем */
-body.light-theme {
-    background-color: #ffffff;
-    color: #000000;
-}
-body.dark-theme {
-    background-color: #000000;
-    color: #ffffff;
-}
-body.light-theme .navbar {
-    background-color: #f8f9fa; /* Светлая тема */
-    color: #000000; 
-}
-body.dark-theme .navbar {
-    background-color: #333333; /* тёмная тема*/
-    color: #ffffff; 
-}
-body.light-theme .navbar .navbar-brand, 
-body.light-theme .navbar .nav-link {
-    color: #000000; 
-}
-body.dark-theme .navbar .navbar-brand, 
-body.dark-theme .navbar .nav-link {
-    color: #ffffff; 
-}
-/* свитчи для смены темной темы */
-.custom-switch .custom-control-label::before {
-    background-color: #f8f9fa;
-    border-color: #6c757d;
-    transition: background-color 0.5s, border-color 0.5s;
-}
-.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
-    background-color: #343a40;
-    border-color: #6c757d;
-}
 /* Стили для аудиодорожек */
 .audio-tracks {
     margin-top: 20px;
 }
-
 .audio-track {
     margin-bottom: 20px;
     display: flex;
@@ -88,101 +88,48 @@ body.dark-theme .navbar .nav-link {
     background-color: #f8f9fa;
     transition: background-color 0.5s, border-color 0.5s;
 }
-
 .audio-track:hover {
     background-color: #e9ecef;
 }
-
 .track-info {
     display: flex;
     align-items: center;
 }
-
 .track-cover {
     width: 60px;
     height: 60px;
     border-radius: 10px;
     margin-right: 15px;
 }
-
 .track-details {
     flex-grow: 1;
 }
-
 .track-details h4 {
     margin-bottom: 5px;
 }
-
 body.dark-theme .audio-track {
     background-color: #343a40;
     border-color: #555;
 }
-
 body.dark-theme .audio-track:hover {
     background-color: #495057;
 }
-
 body.dark-theme .track-details h4,
 body.dark-theme .track-details p {
     color: #ffffff;
 }
-
-.custom-audio-player {
-    display: flex;
-    align-items: center;
+/* Стили модального окна */
+.modal-body {
+    text-align: center;
 }
-
-.play-pause-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
+#modalTrackCover {
+    border-radius: 15px;
 }
-
-.seek-bar {
-    flex-grow: 1;
-    margin-right: 10px;
+body.light-theme .modal-content {
+    background-color: #ffffff;
+    color: #000000;
 }
-
-.current-time,
-.total-time {
-    font-size: 14px;
-}
-.play-pause-btn {
-    background-color: #19742e00;
-    color: #fff;
-    border: none;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-.play-pause-btn:hover {
-    background-color: #21883700;
-    transform: scale(1.1); 
-}
-
-.play-pause-btn:focus {
-    outline: none; 
-}
-
-.play-pause-btn::after {
-    content: '\25B6'; 
-    font-size: 24px;
-}
-
-.play-pause-btn.playing::after {
-    content: '\23F8'; 
+body.dark-theme .modal-content {
+    background-color: #333333;
+    color: #ffffff;
 }
