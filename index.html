@@ -13,14 +13,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
-                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
-                    </div>
-                </li>
-            </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                    <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                </div>
+            </li>
+        </ul>
     </nav>
 
     <!-- навигационная панель -->
@@ -39,7 +39,7 @@
             <p>Все песни в одном месте!</p>
             <div class="audio-tracks">
                 <h2>Треки</h2>
-                <div class="audio-track" onclick="openModal('src/audios/Metallica_Nothing_Else_Matters.mp3', 'src/photos/Metallica_Nothing_Else_Matters.jpeg', 'Nothing Else Matters', 'Metallica')">
+                <div class="audio-track" onclick="openPlayer('src/audios/Metallica_Nothing_Else_Matters.mp3', 'src/photos/Metallica_Nothing_Else_Matters.jpeg', 'Nothing Else Matters', 'Metallica')">
                     <div class="track-info">
                         <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
                         <div class="track-details">
@@ -53,21 +53,35 @@
         </div>
     </div>
 
+    <!-- Фиксированный плеер -->
+    <div id="fixedPlayer" class="fixed-player">
+        <div class="player-info">
+            <img id="playerTrackCover" src="" alt="Track Cover" class="player-cover">
+            <div class="player-details">
+                <h5 id="playerTrackTitle">Track Title</h5>
+                <p id="playerTrackArtist">Artist</p>
+            </div>
+        </div>
+        <audio id="playerAudio" controls>
+            <source id="playerAudioSource" src="" type="audio/mpeg">
+        </audio>
+        <button type="button" class="close-player" onclick="closePlayer()">&times;</button>
+    </div>
+
     <!-- Модальное окно -->
     <div class="modal fade" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="trackModalLabel">Track Title</h5>
+                    <h5 class="modal-title" id="trackModalLabel">Track Title - Artist</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img id="modalTrackCover" src="" alt="Track Cover" class="img-fluid">
-                    <p id="modalTrackArtist"></p>
+                    <img id="modalTrackCover" src="" alt="Track Cover" class="img-fluid mb-3">
                     <audio id="modalAudio" controls>
-                        <source id="modalAudioSource" src="" type="audio/mpeg">
+                        <source src="" type="audio/mpeg">
                     </audio>
                 </div>
             </div>
@@ -80,18 +94,18 @@
             <div class="row">
                 <div class="col-md-4">
                     <h5>Контакты</h5>
-                    <p><strong>Телефон: </strong>+7 (917) 934 9799</p>
-                    <p><strong>Email: </strong>kabirov.ayrat2004@gmail.com</p>
+                    <p><strong>Телефон:</strong> +123456789</p>
+                    <p><strong>Email:</strong> example@mail.com</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Социальные сети</h5>
-                    <p><a href="https://vk.com/kaayrat" target="_blank">ВКонтакте</a></p>
-                    <p><a href="https://github.com/KabAyrat" target="_blank">GitHub</a></p>
+                    <p><a href="https://vk.com/yourprofile" target="_blank">ВКонтакте</a></p>
+                    <p><a href="https://github.com/yourprofile" target="_blank">GitHub</a></p>
                 </div>
                 <div class="col-md-4">
                     <h5>Обратная связь</h5>
-                    <p><a href="#####">Связаться с нами</a></p>
-                    <p>&copy; 2024 Kabirov Ayrat. Все права защищены.</p>
+                    <p><a href="#">Форма обратной связи</a></p>
+                    <p>&copy; 2024 Ваше Имя. Все права защищены.</p>
                 </div>
             </div>
         </div>
