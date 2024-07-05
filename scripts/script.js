@@ -86,6 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
+            <div class="audio-track" onclick="openPlayer('src/audios/Metallica_fadeToBlack.mp3', 'src/photos/Metallica_fadeToBlack.jpg', 'Fade To Black', 'Metallica')">
+                <div class="track-info">
+                    <img src="src/photos/Metallica_fadeToBlack.jpg" alt="Track 2 Cover" class="track-cover">
+                    <div class="track-details">
+                        <h4>Fade to Black</h4>
+                        <p>Metallica</p>
+                    </div>
+                </div>
+            </div>
             <!-- другие треки сюда -->
         `;
     }, 1000); // Имитация задержки загрузки
