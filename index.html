@@ -54,8 +54,8 @@
     </div>
 
     <!-- Модальное окно -->
-    <div class="modal fade" id="trackModal" tabindex="-1" aria-labelledby="trackModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="trackModalLabel">Track Title</h5>
@@ -64,12 +64,38 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="" alt="Track Cover" id="modalTrackCover" class="img-fluid mb-3 rounded">
-                    <audio id="modalAudio" controls class="w-100"></audio>
+                    <img id="modalTrackCover" src="" alt="Track Cover" class="img-fluid">
+                    <p id="modalTrackArtist"></p>
+                    <audio id="modalAudio" controls>
+                        <source id="modalAudioSource" src="" type="audio/mpeg">
+                    </audio>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><strong>Телефон: </strong>+7 (917) 934 9799</p>
+                    <p><strong>Email: </strong>kabirov.ayrat2004@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Социальные сети</h5>
+                    <p><a href="https://vk.com/kaayrat" target="_blank">ВКонтакте</a></p>
+                    <p><a href="https://github.com/KabAyrat" target="_blank">GitHub</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Обратная связь</h5>
+                    <p><a href="#####">Связаться с нами</a></p>
+                    <p>&copy; 2024 Kabirov Ayrat. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
