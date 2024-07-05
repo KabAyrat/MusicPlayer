@@ -1,4 +1,5 @@
-function openNav() {            // ОТКРЫТИЕ/ЗАКРЫТИЕ НАВИГАЦИОННОЙ ПАНЕЛИ
+// ОТКРЫТИЕ/ЗАКРЫТИЕ НАВИГАЦИОННОЙ ПАНЕЛИ
+function openNav() {          
     document.getElementById("sideNav").style.width = "250px";          
     document.getElementById("main").style.marginLeft = "250px";
 }
@@ -8,7 +9,8 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
-document.getElementById("themeSwitch").addEventListener("change", function() {      // ПЕРЕКЛЮЧАТЕЛЬ МЕЖДУ ТЕМАМИ
+// ПЕРЕКЛЮЧАТЕЛЬ МЕЖДУ ТЕМАМИ
+document.getElementById("themeSwitch").addEventListener("change", function() {      
     const body = document.body;
     if (this.checked) {
         body.classList.remove("light-theme");
@@ -18,14 +20,20 @@ document.getElementById("themeSwitch").addEventListener("change", function() {  
         body.classList.add("light-theme");
     }
 });
-function openModal(trackSrc, coverSrc, trackTitle, artist) {        // ОТКРЫТИЕ МОДАЛЬНОГО ОКНА
+
+// ОТКРЫТИЕ МОДАЛЬНОГО ОКНА
+function openModal(trackSrc, coverSrc, trackTitle, artist) {
     const modal = $('#trackModal');
-    const audio = document.getElementById('modalAudio');
-
-    audio.pause();
-    audio.currentTime = 0;
-
-    $('#modalAudio').attr('src', trackSrc);
+    const modalAudio = document.getElementById('modalAudio');
+    const playerAudio = document.getElementById('playerAudio');
+    
+    // Синхронизируем модальное окно с аудиоплеером
+    modalAudio.src = trackSrc;
+    modalAudio.currentTime = playerAudio.currentTime;
+    if (!playerAudio.paused) {
+        modalAudio.play();
+    }
+    
     $('#modalTrackCover').attr('src', coverSrc);
     $('#trackModalLabel').text(`${trackTitle} - ${artist}`);
 
@@ -33,8 +41,11 @@ function openModal(trackSrc, coverSrc, trackTitle, artist) {        // ОТКР�
     modal.find('.modal-content').attr('class', `modal-content ${theme}`);
 
     modal.modal('show');
+    playerAudio.pause();
 }
-function openPlayer(audioSrc, coverSrc, title, artist) {        // ОТКРЫТИЕ ПЛЕЕРА
+
+// ОТКРЫТИЕ ПЛЕЕРА
+function openPlayer(audioSrc, coverSrc, title, artist) {
     const playerAudio = document.getElementById('playerAudio');
     const playerAudioSource = document.getElementById('playerAudioSource');
     const playerTrackCover = document.getElementById('playerTrackCover');
@@ -53,7 +64,8 @@ function openPlayer(audioSrc, coverSrc, title, artist) {        // ОТКРЫТ�
     }
 }
 
-function closePlayer() {    // ЗАКРЫТИЕ ПЛЕЕРА
+// ЗАКРЫТИЕ ПЛЕЕРА
+function closePlayer() {
     const playerAudio = document.getElementById('playerAudio');
     const fixedPlayer = document.getElementById('fixedPlayer');
 
@@ -63,17 +75,35 @@ function closePlayer() {    // ЗАКРЫТИЕ ПЛЕЕРА
     }
 }
 
-document.getElementById('fixedPlayer').addEventListener('click', function() {       // ОТКРЫТИЕ МОДАЛЬНОГО ОКНА
-    if (window.innerWidth <= 768) {
+// ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПРИ НАЖАТИИ НА ФИКСИРОВАННЫЙ ПЛЕЕР В МОБИЛЬНОЙ ВЕРСИИ
+document.getElementById('fixedPlayer').addEventListener('click', function(event) {
+    const fixedPlayer = document.getElementById('fixedPlayer');
+    if (window.innerWidth <= 768 && fixedPlayer.classList.contains('show')) {
         const playerAudioSrc = document.getElementById('playerAudioSource').src;
         const playerTrackCoverSrc = document.getElementById('playerTrackCover').src;
         const playerTrackTitle = document.getElementById('playerTrackTitle').textContent;
         const playerTrackArtist = document.getElementById('playerTrackArtist').textContent;
         openModal(playerAudioSrc, playerTrackCoverSrc, playerTrackTitle, playerTrackArtist);
+        event.stopPropagation();  // Останавливаем дальнейшую обработку события
     }
 });
+
+// Закрытие модального окна
+$('#trackModal').on('hidden.bs.modal', function () {
+    const playerAudio = document.getElementById('playerAudio');
+    const modalAudio = document.getElementById('modalAudio');
+    const fixedPlayer = document.getElementById('fixedPlayer');
+    
+    // Синхронизируем плеер с модальным окном
+    playerAudio.currentTime = modalAudio.currentTime;
+    if (!modalAudio.paused) {
+        playerAudio.play();
+    }
+    fixedPlayer.classList.add('show');
+});
+
+// Замена скелетона реальным контентом после загрузки
 document.addEventListener('DOMContentLoaded', function() {
-    // Заменить скелетон реальным контентом после загрузки
     setTimeout(function() {
         const trackList = document.getElementById('trackList');
         trackList.innerHTML = `

@@ -13,14 +13,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="themeSwitch">
-                    <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
-                </div>
-            </li>
-        </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                    </div>
+                </li>
+            </ul>
     </nav>
 
     <!-- навигационная панель -->
@@ -73,40 +73,43 @@
             </div>
         </div>
     </div>    
-    <!-- Фиксированный плеер -->
-    <div id="fixedPlayer" class="fixed-player">
-        <div class="player-info">
-            <img id="playerTrackCover" src="" alt="Track Cover" class="player-cover">
-            <div class="player-details">
-                <h5 id="playerTrackTitle">Track Title</h5>
-                <p id="playerTrackArtist">Artist</p>
-            </div>
+<!-- Фиксированный плеер -->
+<div id="fixedPlayer" class="fixed-player">
+    <div class="player-info">
+        <img id="playerTrackCover" class="player-cover" src="" alt="Track Cover">
+        <div class="player-details">
+            <h5 id="playerTrackTitle"></h5>
+            <p id="playerTrackArtist"></p>
         </div>
-        <audio id="playerAudio" controls>
-            <source id="playerAudioSource" src="" type="audio/mpeg">
-        </audio>
-        <button type="button" class="close-player" onclick="closePlayer()">&times;</button>
     </div>
+    <audio id="playerAudio" controls>
+        <source id="playerAudioSource" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="close-player" onclick="closePlayer()">X</button>
+</div>
 
-    <!-- Модальное окно -->
-    <div class="modal fade" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="trackModalLabel">Track Title - Artist</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img id="modalTrackCover" src="" alt="Track Cover" class="img-fluid mb-3">
-                    <audio id="modalAudio" controls>
-                        <source src="" type="audio/mpeg">
-                    </audio>
-                </div>
+<!-- Модальное окно -->
+<div id="trackModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="trackModalLabel" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalTrackCover" class="img-fluid" src="" alt="Track Cover">
+                <audio id="modalAudio" controls>
+                    <source id="modalAudioSource" src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
     </div>
+</div>
+
 
     <!-- Футер -->
     <footer class="footer">
