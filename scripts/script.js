@@ -72,3 +72,21 @@ document.getElementById('fixedPlayer').addEventListener('click', function() {   
         openModal(playerAudioSrc, playerTrackCoverSrc, playerTrackTitle, playerTrackArtist);
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Заменить скелетон реальным контентом после загрузки
+    setTimeout(function() {
+        const trackList = document.getElementById('trackList');
+        trackList.innerHTML = `
+            <div class="audio-track" onclick="openPlayer('src/audios/Metallica_Nothing_Else_Matters.mp3', 'src/photos/Metallica_Nothing_Else_Matters.jpeg', 'Nothing Else Matters', 'Metallica')">
+                <div class="track-info">
+                    <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
+                    <div class="track-details">
+                        <h4>Nothing Else Matters</h4>
+                        <p>Metallica</p>
+                    </div>
+                </div>
+            </div>
+            <!-- другие треки сюда -->
+        `;
+    }, 1000); // Имитация задержки загрузки
+});

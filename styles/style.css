@@ -270,4 +270,51 @@ body.dark-theme {
     .fixed-player audio {
         display: none;
     }
+}/* Скелетон загрузка */
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    min-height: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background: linear-gradient(to right, transparent 0%, #f0f0f0 50%, transparent 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Специфичные скелетон элементы */
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 10px;
+}
+
+.skeleton-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.skeleton-audio {
+    height: 32px;
+    margin-top: 10px;
 }

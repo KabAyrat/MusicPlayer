@@ -39,20 +39,40 @@
             <p>Все песни в одном месте!</p>
             <div class="audio-tracks">
                 <h2>Треки</h2>
-                <div class="audio-track" onclick="openPlayer('src/audios/Metallica_Nothing_Else_Matters.mp3', 'src/photos/Metallica_Nothing_Else_Matters.jpeg', 'Nothing Else Matters', 'Metallica')">
-                    <div class="track-info">
-                        <img src="src/photos/Metallica_Nothing_Else_Matters.jpeg" alt="Track 1 Cover" class="track-cover">
-                        <div class="track-details">
-                            <h4>Nothing Else Matters</h4>
-                            <p>Metallica</p>
+                <div id="trackList">
+                    <!-- Скелетон загрузка для аудиотреков -->
+                    <div class="audio-track">
+                        <div class="track-info">
+                            <div class="skeleton skeleton-image"></div>
+                            <div class="track-details">
+                                <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                                <div class="skeleton skeleton-text" style="width: 40%;"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="audio-track">
+                        <div class="track-info">
+                            <div class="skeleton skeleton-image"></div>
+                            <div class="track-details">
+                                <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                                <div class="skeleton skeleton-text" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audio-track">
+                        <div class="track-info">
+                            <div class="skeleton skeleton-image"></div>
+                            <div class="track-details">
+                                <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                                <div class="skeleton skeleton-text" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- другие скелетон элементы сюда -->
                 </div>
-                <!-- другие треки сюда -->
             </div>
         </div>
-    </div>
-
+    </div>    
     <!-- Фиксированный плеер -->
     <div id="fixedPlayer" class="fixed-player">
         <div class="player-info">
@@ -94,18 +114,18 @@
             <div class="row">
                 <div class="col-md-4">
                     <h5>Контакты</h5>
-                    <p><strong>Телефон:</strong> +123456789</p>
-                    <p><strong>Email:</strong> example@mail.com</p>
+                    <p><strong>Телефон:</strong> +7 (917) 934 9799</p>
+                    <p><strong>Email:</strong> kabirov.ayrat2004@gmail.com</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Социальные сети</h5>
-                    <p><a href="https://vk.com/yourprofile" target="_blank">ВКонтакте</a></p>
-                    <p><a href="https://github.com/yourprofile" target="_blank">GitHub</a></p>
+                    <p><a href="https://vk.com/kaayrat" target="_blank">ВКонтакте</a></p>
+                    <p><a href="https://github.com/KabAyrat" target="_blank">GitHub</a></p>
                 </div>
                 <div class="col-md-4">
                     <h5>Обратная связь</h5>
-                    <p><a href="#">Форма обратной связи</a></p>
-                    <p>&copy; 2024 Ваше Имя. Все права защищены.</p>
+                    <p><a href="#">Свяжитесь с нами</a></p>
+                    <p>&copy; 2024 Kabirov Ayrat. Все права защищены.</p>
                 </div>
             </div>
         </div>
