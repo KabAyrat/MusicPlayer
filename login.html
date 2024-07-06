@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация и Регистрация</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="src/photos/logo.png" type="image/icon type">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="light-theme d-flex flex-column min-vh-100">
+    <!-- навигационная панель -->
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">MusicApp</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="src/photos/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            MusicApp
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
-                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                    <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                </div>
+            </li>
+        </ul>
     </nav>
+
 
     <!-- Навигационная панель -->
     <div id="sideNav" class="sidenav">
