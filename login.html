@@ -1,124 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Streaming Site</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация и Регистрация</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">MusicApp</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Войти</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Зарегистрироваться</a>
-        </li>
-      </ul>
+<body class="light-theme d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">MusicApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Навигационная панель -->
+    <div id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="#">Плейлисты</a>
+        <a href="login.html">Авторизация</a>
     </div>
-  </nav>
 
-  <!-- Main Content -->
-  <div class="container">
-    <h1 class="mt-5">Добро пожаловать MusicApp</h1>
-    <p>Как Спотифай, только российский), и бесплатный))</p>
-  </div>
+    <div id="main" class="flex-grow-1">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Меню</span>
+        <div class="container mt-5">
+            <div class="auth-buttons">
+                <button class="btn btn-primary" id="showLogin">Вход</button>
+                <button class="btn btn-secondary" id="showRegister">Регистрация</button>
+            </div>
 
-  <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Вход</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id="loginForm">
-            <div class="form-group">
-              <label for="loginEmail">Email</label>
-              <input type="email" class="form-control" id="loginEmail" required>
+            <div id="authContent">
+                <!-- Вход -->
+                <div id="loginForm" class="auth-form">
+                    <h1>Вход</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Введите email">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Пароль</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Введите пароль">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </form>
+                </div>
+
+                <!-- Регистрация -->
+                <div id="registerForm" class="auth-form" style="display: none;">
+                    <h1>Регистрация</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="registerName">Имя</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Введите имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Введите email">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Пароль</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Введите пароль">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Подтвердите пароль</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Подтвердите пароль">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Зарегистрироваться</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="loginPassword">Пароль</label>
-              <input type="password" class="form-control" id="loginPassword" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Войти</button>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Register Modal -->
-  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><strong>Телефон:</strong> +7 (917) 934 9799</p>
+                    <p><strong>Email:</strong> kabirov.ayrat2004@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Социальные сети</h5>
+                    <p><a href="https://vk.com/kaayrat" target="_blank">ВКонтакте</a></p>
+                    <p><a href="https://github.com/KabAyrat" target="_blank">GitHub</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Обратная связь</h5>
+                    <p><a href="#">Свяжитесь с нами</a></p>
+                    <p>&copy; 2024 Kabirov Ayrat. Все права на музыку принадлежат их авторам</p>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <form id="registerForm">
-            <div class="form-group">
-              <label for="registerEmail">Email</label>
-              <input type="email" class="form-control" id="registerEmail" required>
-            </div>
-            <div class="form-group">
-              <label for="registerPassword">Пароль</label>
-              <input type="password" class="form-control" id="registerPassword" required>
-            </div>
-            <div class="form-group">
-              <label for="registerConfirmPassword">Повторите пароль</label>
-              <input type="password" class="form-control" id="registerConfirmPassword" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-
-      // Implement login logic here
-
-      alert('Logged in as ' + email);
-      $('#loginModal').modal('hide');
-    });
-
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const email = document.getElementById('registerEmail').value;
-      const password = document.getElementById('registerPassword').value;
-      const confirmPassword = document.getElementById('registerConfirmPassword').value;
-
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-      }
-
-      // Implement registration logic here
-
-      alert('Registered with ' + email);
-      $('#registerModal').modal('hide');
-    });
-  </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/register.js"></script>
 </body>
 </html>
