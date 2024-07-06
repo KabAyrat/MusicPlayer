@@ -129,3 +129,29 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }, 1000); // Имитация задержки загрузки
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a');
+    
+    links.forEach(link => {
+        if (link.getAttribute('href') !== "#") {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                
+                document.body.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 500);
+            });
+        }
+    });
+});
+
+function openNav() {
+    document.getElementById("sideNav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("sideNav").style.width = "0";
+}
