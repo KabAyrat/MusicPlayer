@@ -143,7 +143,6 @@ body.dark-theme .track-details h4,
 body.dark-theme .track-details p {
     color: #ffffff;
 }
-
 /* Стили фиксированного плеера */
 .fixed-player {
     position: fixed;
@@ -203,24 +202,75 @@ body.dark-theme .fixed-player {
 body.dark-theme .fixed-player .close-player {
     color: #fff;
 }
-
 /* Стили футера */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+body.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #fff;
+}
 .footer {
     background-color: #333;
     color: #fff;
     padding: 20px 0;
 }
-
-.footer a {
-    color: #ffffff;
-    text-decoration: none;
+.fixed-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
-
-.footer a:hover {
-    text-decoration: underline;
+.fixed-player .player-info {
+    display: flex;
+    align-items: center;
 }
-
-/* Скелетон загрузка */
+.fixed-player .player-cover {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.fixed-player .player-details {
+    display: flex;
+    flex-direction: column;
+}
+.fixed-player .close-player {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.fixed-player audio {
+    display: block;
+    width: 300px;
+    margin: 0 10px;
+}
+@media (max-width: 768px) {
+    .fixed-player audio {
+        display: none;
+    }
+}/* Скелетон загрузка */
 .skeleton {
     background-color: #e0e0e0;
     border-radius: 4px;
@@ -267,25 +317,4 @@ body.dark-theme .fixed-player .close-player {
 .skeleton-audio {
     height: 32px;
     margin-top: 10px;
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-    .fixed-player audio {
-        display: none;
-    }
-    .fixed-player {
-        cursor: pointer;
-    }
-}
-
-/* Модальное окно */
-body.light-theme .modal-content {
-    background-color: #fff;
-    color: #000;
-}
-
-body.dark-theme .modal-content {
-    background-color: #333;
-    color: #fff;
 }

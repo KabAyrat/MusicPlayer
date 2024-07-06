@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App || Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="light-theme">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">MusicApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
+                        <label class="custom-control-label" for="themeSwitch">Сменить тему</label>
+                    </div>
+                </li>
+            </ul>
+    </nav>
+
+    <!-- навигационная панель -->
+    <div id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="#">Плейлисты</a>
+        <a href="#">Авторизация</a>
+    </div>
+
+    
+    <div id="main" class="container mt-5 main-content">
+        <h1>Профиль пользователя</h1>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Имя пользователя</h5>
+                <p class="card-text">Иван Иванов</p>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Информация о пользователе</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut libero libero. Morbi consequat lobortis leo, ac ultricies mi cursus nec. Fusce bibendum tristique quam, non placerat tortor lacinia sit amet. Aenean non aliquet urna, sed vehicula odio. Proin varius sit amet nisl sed efficitur. Sed in convallis nisi, et condimentum elit.</p>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Контактная информация</h5>
+                <p class="card-text">Email: ivan@example.com</p>
+                <p class="card-text">Телефон: +7 (123) 456-78-90</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><strong>Телефон:</strong> +7 (917) 934 9799</p>
+                    <p><strong>Email:</strong> kabirov.ayrat2004@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Социальные сети</h5>
+                    <p><a href="https://vk.com/kaayrat" target="_blank">ВКонтакте</a></p>
+                    <p><a href="https://github.com/KabAyrat" target="_blank">GitHub</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Обратная связь</h5>
+                    <p><a href="#">Свяжитесь с нами</a></p>
+                    <p>&copy; 2024 Kabirov Ayrat. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
