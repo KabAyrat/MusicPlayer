@@ -9,15 +9,32 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
+// УСТАНОВКА ТЕМЫ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+document.addEventListener('DOMContentLoaded', function() {
+    const theme = localStorage.getItem('theme');
+    const body = document.body;
+    const themeSwitch = document.getElementById("themeSwitch");
+
+    if (theme === 'dark') {
+        body.classList.add('dark-theme');
+        themeSwitch.checked = true;
+    } else {
+        body.classList.add('light-theme');
+        themeSwitch.checked = false;
+    }
+});
+
 // ПЕРЕКЛЮЧАТЕЛЬ МЕЖДУ ТЕМАМИ
 document.getElementById("themeSwitch").addEventListener("change", function() {      
     const body = document.body;
     if (this.checked) {
         body.classList.remove("light-theme");
         body.classList.add("dark-theme");
+        localStorage.setItem('theme', 'dark');
     } else {
         body.classList.remove("dark-theme");
         body.classList.add("light-theme");
+        localStorage.setItem('theme', 'light');
     }
 });
 
@@ -129,6 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }, 1000); // Имитация задержки загрузки
 });
+
+// Плавный переход при смене страницы
 document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('a');
     
@@ -148,10 +167,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function openNav() {
-    document.getElementById("sideNav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("sideNav").style.width = "0";
-}
+// Скрытие загрузочного экрана после загрузки страницы
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+    }, 3000); // 3000 миллисекунд = 3 секунды
+});
